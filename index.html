@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Parcial DevOps</title>
+</head>
+<body>
+    <h2>Integrantes del Grupo</h2>
+    <button onclick="mostrarNombres()">Mostrar Nombres</button>
+    <p id="resultado"></p>
+
+    <script>
+        function mostrarNombres() {
+            fetch('http://localhost:8080/api/nombres')
+                .then(res => res.text())
+                .then(data => document.getElementById('resultado').innerText = data)
+                .catch(() => document.getElementById('resultado').innerText = "Error de conexión");
+        }
+    </script>
+</body>
+</html>
